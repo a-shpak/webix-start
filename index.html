@@ -38,7 +38,7 @@
             
             // Header 
 
-            let header = {
+            const header = {
                 height:50,
                 css:"header",
                 paddingX:10,
@@ -52,7 +52,7 @@
 
             // Main
 
-            let main_list = {
+            const main_list = {
                 css:"list",
                 width:200, minWidth:120, maxWidth:300,
                 rows: [
@@ -64,13 +64,13 @@
                     ]},
                 ]
             };
-            let main_table = {
+            const main_table = {
                 view:"datatable",
                 data:small_film_set,
                 autoConfig:true,
 
             };
-            let form_content = [
+            const form_content = [
                 { view:"text", label:"Title" },
                 { view:"text", label:"Year" },
                 { view:"text", label:"Rating" },
@@ -82,14 +82,14 @@
                 ]},
                 {}
             ];
-            let main_form = {
+            const main_form = {
                 maxWidth:300,
                 minWidth:165,
                 padding:30,
                 view:"form",
                 elements: form_content,
             };
-            let main = {
+            const main = {
                 cols: [
                     main_list,
                     { view:"resizer" },
@@ -100,11 +100,10 @@
 
             // Footer
 
-            let footer = {
+            const footer = {
                 height:50,
-                view:"label",
-                label:"The software is provided by <a class=\"ref\" href=\"https://webix.com\">https://webix.com</a>. All rights reserved (c)",
-                align:"center",
+                view:"template",
+                template:"The software is provided by <a class=\"ref\" href=\"https://webix.com\">https://webix.com</a>. All rights reserved (c)",
             };
 
             
