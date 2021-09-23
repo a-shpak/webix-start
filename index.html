@@ -18,7 +18,7 @@
                 border: none;
             }
             .color-green .webix_el_box {
-                color: green;
+                color: rgb(40, 167, 40);
             }
             .webix_transparent .webix_button {
                 color: white;
@@ -31,6 +31,17 @@
             }
             .borderless {
                 border: none;
+            }
+            .connected {
+                text-align: center;
+                color: #28A728;
+                background-color: transparent;
+                border:none;
+                font-size: 15pt;
+            }
+            .green-img {
+                filter: invert(48%) sepia(12%) saturate(4776%) hue-rotate(80deg) brightness(99%) contrast(80%);
+                vertical-align: middle;
             }
 
             
@@ -58,13 +69,16 @@
             const main_list = {
                 css:"list",
                 width:200, minWidth:120, maxWidth:300,
+                paddingY:10,
                 rows: [
                     { view: "list", data: ["Dashboard", "Users", "Product", "Locations"], 
                       css:"list", scroll:false },
-                    { cols:[
-                        { view:"icon", icon:"wxi-check", css:"color-green" },
-                        { view:"label", label:"Connected", css:"color-green" }
-                    ]},
+                    // { cols:[
+                    //     { view:"icon", icon:"wxi-check", css:"color-green" },
+                    //     { view:"label", label:"Connected", css:"color-green" }
+                    // ]},
+                    { view:"template", template:"<img src=\"img/check.svg\" class=\"green-img\">Connected", css:"connected", height:30 },
+
                 ]
             };
             const main_table = {
@@ -78,8 +92,7 @@
                 { view:"text", label:"Year" },
                 { view:"text", label:"Rating" },
                 { view:"text", label:"Votes" },
-                {
-                    cols:[
+                {cols:[
                     { view:"button", label:"Add Item", css:"webix_primary" },
                     { view:"button", label:"Clear" },
                 ]},
