@@ -17,7 +17,7 @@ const mainTable = {
     scroll:"y"
 };
 const formContent = [
-    { view:"template", type:"section", template:"EDIT FILMS" },
+    { view:"template", type:"section", template:"edit films" },
     { view:"text", label:"Title", name:"title", invalidMessage:"Enter valid title" },
     { view:"text", label:"Year", name:"year", invalidMessage:"Year should be between 1970 and 2021" },
     { view:"text", label:"Rating", name:"rating", invalidMessage:"Rating cannot be empty or 0" },
