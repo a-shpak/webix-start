@@ -29,6 +29,9 @@
             .webix_transparent .webix_button .webix_icon_btn {
                 color: white;
             }
+            .borderless {
+                border: none;
+            }
 
             
         </style>
@@ -68,7 +71,7 @@
                 view:"datatable",
                 data:small_film_set,
                 autoConfig:true,
-
+                scroll:"y"
             };
             const form_content = [
                 { view:"text", label:"Title" },
@@ -102,8 +105,12 @@
 
             const footer = {
                 height:50,
-                view:"template",
-                template:"The software is provided by <a class=\"ref\" href=\"https://webix.com\">https://webix.com</a>. All rights reserved (c)",
+                align:"center,middle",
+                body: {
+                    css:"borderless",
+                    view:"template",
+                    template:"The software is provided by <a class=\"ref\" href=\"https://webix.com\">https://webix.com</a>. All rights reserved (c)", width:470, height:22
+                }
             };
 
             
