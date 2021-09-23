@@ -18,7 +18,7 @@ const main_table = {
 };
 const form_content = [
     { view:"template", type:"section", template:"EDIT FILMS" },
-    { view:"text", label:"Title", name:"title", invalidMessage:"Title cannot be empty" },
+    { view:"text", label:"Title", name:"title", invalidMessage:"Enter valid title" },
     { view:"text", label:"Year", name:"year", invalidMessage:"Year should be between 1970 and 2021" },
     { view:"text", label:"Rating", name:"rating", invalidMessage:"Rating cannot be empty or 0" },
     { view:"text", label:"Votes", name:"votes", invalidMessage:"Votes must be less than 100000" },
@@ -36,7 +36,7 @@ const main_form = {
     padding:30,
     elements: form_content,
     rules: {
-        title:webix.rules.isNotEmpty,
+        title:val => val && /<(.|\n)*?>/g.test(val) == false,
         year: val => val > 1970 && val <= new Date().getFullYear(),
         rating: val => !isNaN(val) && val != 0,
         votes: val => val && val < 100000 && val >= 0,
@@ -73,4 +73,8 @@ function button_clear_click() {
             $$("form_movie").clearValidation();
         }
     );
+}
+
+function isValidText(text) {
+    return ;
 }
