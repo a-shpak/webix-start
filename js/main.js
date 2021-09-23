@@ -74,7 +74,3 @@ function button_clear_click() {
         }
     );
 }
-
-function isValidText(text) {
-    return ;
-}
