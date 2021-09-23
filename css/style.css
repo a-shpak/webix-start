@@ -22,8 +22,10 @@
 .webix_transparent .webix_button .webix_icon_btn {
     color: white;
 }
-.borderless {
-    border: none;
+.text-footer {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
 }
 .connected {
     text-align: center;

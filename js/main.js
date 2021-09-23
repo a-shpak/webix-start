@@ -10,29 +10,37 @@ const main_list = {
     ]
 };
 const main_table = {
+    id:"table_movies",
     view:"datatable",
     data:small_film_set,
     autoConfig:true,
     scroll:"y"
 };
 const form_content = [
-    { view:"template", type:"section", template:"edit films" },
-    { view:"text", label:"Title" },
-    { view:"text", label:"Year" },
-    { view:"text", label:"Rating" },
-    { view:"text", label:"Votes" },
-    {cols:[
-        { view:"button", label:"Add Item", css:"webix_primary" },
-        { view:"button", label:"Clear" },
+    { view:"template", type:"section", template:"EDIT FILMS" },
+    { view:"text", label:"Title", name:"title", invalidMessage:"Title cannot be empty" },
+    { view:"text", label:"Year", name:"year", invalidMessage:"Year should be between 1970 and 2021" },
+    { view:"text", label:"Rating", name:"rating", invalidMessage:"Rating cannot be empty or 0" },
+    { view:"text", label:"Votes", name:"votes", invalidMessage:"Votes must be less than 100000" },
+    { cols:[
+        { view:"button", label:"Add Item", css:"webix_primary", id:"button_add", click:button_add_click },
+        { view:"button", label:"Clear", id:"button_clear", click:button_clear_click },
     ]},
     {}
 ];
 const main_form = {
-    maxWidth:300,
+    id:"form_movie",
+    view:"form",
+    maxWidth:320,
     minWidth:165,
     padding:30,
-    view:"form",
     elements: form_content,
+    rules: {
+        title:webix.rules.isNotEmpty,
+        year:function(val) { return val > 1970 && val <= new Date().getFullYear(); },
+        rating:function(val) { return val != 0;  },
+        votes:function(val) { return val && val < 100000;  }
+    },
 };
 const main = {
     cols: [
@@ -42,3 +50,37 @@ const main = {
         main_form
     ]
 };
+
+// functions 
+
+function clearForm() {
+    const form = $$("form_movie");
+    form.setValues({});
+    form.clearValidation();
+}
+
+// handlers
+
+function button_add_click() {
+    const form = $$("form_movie");
+    if (form.validate()) {
+        const table = $$("table_movies");
+        let movie = form.getValues();
+        table.data.add(movie);
+        clearForm();
+        webix.message("Validation succees!");
+    }
+}
+function button_clear_click() {
+    webix.confirm({
+        title:"Clear form",
+        text:"Are you sure you want to clear form?",
+    }).then(
+        function() {
+            clearForm();
+        },
+        function() {
+            //
+        }
+    );
+}
