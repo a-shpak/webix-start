@@ -73,10 +73,6 @@
                 rows: [
                     { view: "list", data: ["Dashboard", "Users", "Product", "Locations"], 
                       css:"list", scroll:false },
-                    // { cols:[
-                    //     { view:"icon", icon:"wxi-check", css:"color-green" },
-                    //     { view:"label", label:"Connected", css:"color-green" }
-                    // ]},
                     { view:"template", template:"<img src=\"img/check.svg\" class=\"green-img\">Connected", css:"connected", height:30 },
 
                 ]
@@ -88,6 +84,7 @@
                 scroll:"y"
             };
             const form_content = [
+                { view:"template", type:"section", template:"EDIT FILMS" },
                 { view:"text", label:"Title" },
                 { view:"text", label:"Year" },
                 { view:"text", label:"Rating" },
