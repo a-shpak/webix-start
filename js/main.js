@@ -37,9 +37,9 @@ const main_form = {
     elements: form_content,
     rules: {
         title:webix.rules.isNotEmpty,
-        year:function(val) { return val > 1970 && val <= new Date().getFullYear(); },
-        rating:function(val) { return val != 0;  },
-        votes:function(val) { return val && val < 100000;  }
+        year: val => val > 1970 && val <= new Date().getFullYear(),
+        rating: val => !isNaN(val) && val != 0,
+        votes: val => val && val < 100000 && val >= 0,
     },
 };
 const main = {
@@ -51,13 +51,6 @@ const main = {
     ]
 };
 
-// functions 
-
-function clearForm() {
-    const form = $$("form_movie");
-    form.setValues({});
-    form.clearValidation();
-}
 
 // handlers
 
@@ -65,9 +58,8 @@ function button_add_click() {
     const form = $$("form_movie");
     if (form.validate()) {
         const table = $$("table_movies");
-        let movie = form.getValues();
-        table.data.add(movie);
-        clearForm();
+        table.data.add(form.getValues());
+        form.clear();
         webix.message("Validation succees!");
     }
 }
@@ -77,10 +69,8 @@ function button_clear_click() {
         text:"Are you sure you want to clear form?",
     }).then(
         function() {
-            clearForm();
-        },
-        function() {
-            //
+            $$("form_movie").clear();
+            $$("form_movie").clearValidation();
         }
     );
 }
