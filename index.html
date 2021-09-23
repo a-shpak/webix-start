@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="node_modules/webix/webix.css" type="text/css"> 
+        <script src="node_modules/webix/webix.js" type="text/javascript"></script>
+        <script src="testdata.js" type="text/javascript"></script>
+        <style>
+            .header {
+                background-color: #657584;
+            }
+            .title .webix_el_box {
+                font-weight: bold;
+                color: white;
+                font-size: 14pt;
+            } 
+            .list {
+                background-color: #EEE;
+                border: none;
+            }
+            .color-green .webix_el_box {
+                color: green;
+            }
+            .webix_transparent .webix_button {
+                color: white;
+            }
+            .webix_transparent .webix_img_button {
+                color: white;
+            }
+            .webix_transparent .webix_button .webix_icon_btn {
+                color: white;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <script>
+            
+            // Header 
+
+            let header = {
+                height:50,
+                css:"header",
+                paddingX:10,
+                paddingY:3,
+                cols: [
+                    { view:"label", label:"My App", css:"title" },
+                    {},
+                    { view:"button", label:"Profile", type:"icon", icon:"wxi-user", css:"webix_transparent", maxWidth:200, id:"button_header" }
+                ]
+            };
+
+            // Main
+
+            let main_list = {
+                css:"list",
+                width:200, minWidth:120, maxWidth:300,
+                rows: [
+                    { view: "list", data: ["Dashboard", "Users", "Product", "Locations"], 
+                      css:"list", scroll:false },
+                    { cols:[
+                        { view:"icon", icon:"wxi-check", css:"color-green" },
+                        { view:"label", label:"Connected", css:"color-green" }
+                    ]},
+                ]
+            };
+            let main_table = {
+                view:"datatable",
+                data:small_film_set,
+                autoConfig:true,
+
+            };
+            let form_content = [
+                { view:"text", label:"Title" },
+                { view:"text", label:"Year" },
+                { view:"text", label:"Rating" },
+                { view:"text", label:"Votes" },
+                {
+                    cols:[
+                    { view:"button", label:"Add Item", css:"webix_primary" },
+                    { view:"button", label:"Clear" },
+                ]},
+                {}
+            ];
+            let main_form = {
+                maxWidth:300,
+                minWidth:165,
+                padding:30,
+                view:"form",
+                elements: form_content,
+            };
+            let main = {
+                cols: [
+                    main_list,
+                    { view:"resizer" },
+                    main_table,
+                    main_form
+                ]
+            };
+
+            // Footer
+
+            let footer = {
+                height:50,
+                view:"label",
+                label:"The software is provided by <a class=\"ref\" href=\"https://webix.com\">https://webix.com</a>. All rights reserved (c)",
+                align:"center",
+            };
+
+            
+            // UI
+
+            webix.ui({
+                rows: [
+                    header,
+                    main,
+                    footer
+                ]
+            });
+
+            
+        </script>
+    </body>
+</html>
