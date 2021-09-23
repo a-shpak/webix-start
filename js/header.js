@@ -11,7 +11,7 @@ const header = {
     ]
 };
 
-const profile_popup = {
+const profilePopup = {
     view:"popup",
     id:"profile_popup",
     body: {

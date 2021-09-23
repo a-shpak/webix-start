@@ -1,4 +1,4 @@
-const main_list = {
+const mainList = {
     css:"list",
     width:200, minWidth:120, maxWidth:300,
     paddingY:10,
@@ -9,32 +9,32 @@ const main_list = {
 
     ]
 };
-const main_table = {
+const mainTable = {
     id:"table_movies",
     view:"datatable",
-    data:small_film_set,
+    data:smallFilmSet,
     autoConfig:true,
     scroll:"y"
 };
-const form_content = [
+const formContent = [
     { view:"template", type:"section", template:"EDIT FILMS" },
     { view:"text", label:"Title", name:"title", invalidMessage:"Enter valid title" },
     { view:"text", label:"Year", name:"year", invalidMessage:"Year should be between 1970 and 2021" },
     { view:"text", label:"Rating", name:"rating", invalidMessage:"Rating cannot be empty or 0" },
     { view:"text", label:"Votes", name:"votes", invalidMessage:"Votes must be less than 100000" },
     { cols:[
-        { view:"button", label:"Add Item", css:"webix_primary", id:"button_add", click:button_add_click },
-        { view:"button", label:"Clear", id:"button_clear", click:button_clear_click },
+        { view:"button", label:"Add Item", css:"webix_primary", id:"button_add", click:buttonAdd_click },
+        { view:"button", label:"Clear", id:"button_clear", click:buttonClear_click },
     ]},
     {}
 ];
-const main_form = {
+const mainForm = {
     id:"form_movie",
     view:"form",
     maxWidth:320,
     minWidth:165,
     padding:30,
-    elements: form_content,
+    elements: formContent,
     rules: {
         title:val => val?.trim() && /<(.|\n)*?>/g.test(val) == false,
         year: val => val > 1970 && val <= new Date().getFullYear(),
@@ -44,17 +44,17 @@ const main_form = {
 };
 const main = {
     cols: [
-        main_list,
+        mainList,
         { view:"resizer" },
-        main_table,
-        main_form
+        mainTable,
+        mainForm
     ]
 };
 
 
 // handlers
 
-function button_add_click() {
+function buttonAdd_click() {
     const form = $$("form_movie");
     if (form.validate()) {
         const table = $$("table_movies");
@@ -63,7 +63,7 @@ function button_add_click() {
         webix.message("Validation succees!");
     }
 }
-function button_clear_click() {
+function buttonClear_click() {
     webix.confirm({
         title:"Clear form",
         text:"Are you sure you want to clear form?",
