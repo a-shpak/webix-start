@@ -36,7 +36,7 @@ const main_form = {
     padding:30,
     elements: form_content,
     rules: {
-        title:val => val && /<(.|\n)*?>/g.test(val) == false,
+        title:val => val?.trim() && /<(.|\n)*?>/g.test(val) == false,
         year: val => val > 1970 && val <= new Date().getFullYear(),
         rating: val => !isNaN(val) && val != 0,
         votes: val => val && val < 100000 && val >= 0,
