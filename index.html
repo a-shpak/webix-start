@@ -2,130 +2,16 @@
 <html>
     <head>
         <link rel="stylesheet" href="libs/webix/webix.css" type="text/css"> 
+        <link rel="stylesheet" href="css/style.css" type="text/css"> 
         <script src="libs/webix/webix.js" type="text/javascript"></script>
         <script src="testdata.js" type="text/javascript"></script>
-        <style>
-            .header {
-                background-color: #657584;
-            }
-            .title .webix_el_box {
-                font-weight: bold;
-                color: white;
-                font-size: 14pt;
-            } 
-            .list {
-                background-color: #EEE;
-                border: none;
-            }
-            .color-green .webix_el_box {
-                color: rgb(40, 167, 40);
-            }
-            .webix_transparent .webix_button {
-                color: white;
-            }
-            .webix_transparent .webix_img_button {
-                color: white;
-            }
-            .webix_transparent .webix_button .webix_icon_btn {
-                color: white;
-            }
-            .borderless {
-                border: none;
-            }
-            .connected {
-                text-align: center;
-                color: #28A728;
-                background-color: transparent;
-                border:none;
-                font-size: 15pt;
-            }
-            .green-img {
-                filter: invert(48%) sepia(12%) saturate(4776%) hue-rotate(80deg) brightness(99%) contrast(80%);
-                vertical-align: middle;
-            }
-
-            
-        </style>
+        <script src="js/header.js" type="text/javascript"></script>
+        <script src="js/main.js" type="text/javascript"></script>
+        <script src="js/footer.js" type="text/javascript"></script>
     </head>
     <body>
         <script>
             
-            // Header 
-
-            const header = {
-                height:50,
-                css:"header",
-                paddingX:10,
-                paddingY:3,
-                cols: [
-                    { view:"label", label:"My App", css:"title" },
-                    {},
-                    { view:"button", label:"Profile", type:"icon", icon:"wxi-user", css:"webix_transparent", maxWidth:200, id:"button_header" }
-                ]
-            };
-
-            // Main
-
-            const main_list = {
-                css:"list",
-                width:200, minWidth:120, maxWidth:300,
-                paddingY:10,
-                rows: [
-                    { view: "list", data: ["Dashboard", "Users", "Product", "Locations"], 
-                      css:"list", scroll:false },
-                    { view:"template", template:"<img src=\"img/check.svg\" class=\"green-img\">Connected", css:"connected", height:30 },
-
-                ]
-            };
-            const main_table = {
-                view:"datatable",
-                data:small_film_set,
-                autoConfig:true,
-                scroll:"y"
-            };
-            const form_content = [
-                { view:"template", type:"section", template:"edit films" },
-                { view:"text", label:"Title" },
-                { view:"text", label:"Year" },
-                { view:"text", label:"Rating" },
-                { view:"text", label:"Votes" },
-                {cols:[
-                    { view:"button", label:"Add Item", css:"webix_primary" },
-                    { view:"button", label:"Clear" },
-                ]},
-                {}
-            ];
-            const main_form = {
-                maxWidth:300,
-                minWidth:165,
-                padding:30,
-                view:"form",
-                elements: form_content,
-            };
-            const main = {
-                cols: [
-                    main_list,
-                    { view:"resizer" },
-                    main_table,
-                    main_form
-                ]
-            };
-
-            // Footer
-
-            const footer = {
-                height:50,
-                align:"center,middle",
-                body: {
-                    css:"borderless",
-                    view:"template",
-                    template:"The software is provided by <a class=\"ref\" href=\"https://webix.com\">https://webix.com</a>. All rights reserved (c)", width:470, height:22
-                }
-            };
-
-            
-            // UI
-
             webix.ui({
                 rows: [
                     header,
@@ -133,7 +19,6 @@
                     footer
                 ]
             });
-
             
         </script>
     </body>

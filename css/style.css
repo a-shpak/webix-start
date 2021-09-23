@@ -1,0 +1,38 @@
+.header {
+    background-color: #657584;
+}
+.title .webix_el_box {
+    font-weight: bold;
+    color: white;
+    font-size: 14pt;
+} 
+.list {
+    background-color: #EEE;
+    border: none;
+}
+.color-green .webix_el_box {
+    color: rgb(40, 167, 40);
+}
+.webix_transparent .webix_button {
+    color: white;
+}
+.webix_transparent .webix_img_button {
+    color: white;
+}
+.webix_transparent .webix_button .webix_icon_btn {
+    color: white;
+}
+.borderless {
+    border: none;
+}
+.connected {
+    text-align: center;
+    color: #28A728;
+    background-color: transparent;
+    border:none;
+    font-size: 15pt;
+}
+.green-img {
+    filter: invert(48%) sepia(12%) saturate(4776%) hue-rotate(80deg) brightness(99%) contrast(80%);
+    vertical-align: middle;
+}
