@@ -58,7 +58,7 @@ function buttonAddClick() {
     const form = $$("form_movie");
     if (form.validate()) {
         const table = $$("table_movies");
-        table.data.add(form.getValues());
+        table.add(form.getValues());
         form.clear();
         webix.message("Validation succees!");
     }
