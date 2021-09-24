@@ -23,8 +23,8 @@ const formContent = [
     { view:"text", label:"Rating", name:"rating", invalidMessage:"Rating cannot be empty or 0" },
     { view:"text", label:"Votes", name:"votes", invalidMessage:"Votes must be less than 100000" },
     { cols:[
-        { view:"button", label:"Add Item", css:"webix_primary", id:"button_add", click:buttonAdd_click },
-        { view:"button", label:"Clear", id:"button_clear", click:buttonClear_click },
+        { view:"button", label:"Add Item", css:"webix_primary", id:"button_add", click:buttonAddClick },
+        { view:"button", label:"Clear", id:"button_clear", click:buttonClearClick },
     ]},
     {}
 ];
@@ -54,7 +54,7 @@ const main = {
 
 // handlers
 
-function buttonAdd_click() {
+function buttonAddClick() {
     const form = $$("form_movie");
     if (form.validate()) {
         const table = $$("table_movies");
@@ -63,7 +63,7 @@ function buttonAdd_click() {
         webix.message("Validation succees!");
     }
 }
-function buttonClear_click() {
+function buttonClearClick() {
     webix.confirm({
         title:"Clear form",
         text:"Are you sure you want to clear form?",
