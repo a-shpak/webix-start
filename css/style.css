@@ -41,3 +41,9 @@
 .col-gray {
     background-color: #F4F5F9;
 }
+.pointer {
+    cursor: pointer;
+}
+.datatable-hover {
+    background-color: #B2DAE4;
+}

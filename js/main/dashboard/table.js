@@ -1,15 +1,23 @@
 const table = {
     id:"table_movies",
     view:"datatable",
-    blockselect:false,
-    select:"row",
+    select:true,
     leftSplit:1,
     columns:[
-        { id:"id", header:"", css:"col-gray", width: 60 },
-        { id:"title", header:"Film Title", fillspace:true },
-        { id:"year", header:"Released" },
-        { id:"votes", header:"Votes" },
+        { id:"id", header:"", css:"col-gray", width:60, sort:"int" },
+        { id:"title", header:["Title", { content:"textFilter" } ], fillspace:true, sort:"text"},
+        { id:"year", header:["Released", { content:"textFilter" } ], maxWidth:100, sort:"int" },
+        { id:"votes", header:["Votes", { content:"textFilter" } ], maxWidth:100, sort:"text" },
+        { id:"rating", header:["Rating", { content:"textFilter" } ], maxWidth:100, sort:"text" },
+        { id:"delete", header:"", template:"{common.trashIcon()}", css:"pointer", width:50 },
     ],
+    hover:"datatable-hover",
+    onClick:{
+        "wxi-trash":function(e, id) {
+            this.remove(id);
+            return false;
+        }
+    },
     scroll:"y",
     url: "data/data.js"
 };

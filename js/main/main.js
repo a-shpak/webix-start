@@ -2,7 +2,7 @@ const dashboardView = {
     id:"dashboard_view",
     cols:[
         table,
-        form
+        form,
     ] 
 };
 const usersView = { id:"users_view", template:"users", align:"center" };

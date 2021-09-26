@@ -15,20 +15,23 @@
     <body>
         <script>
             
-            webix.ui(
-                profilePopup
-            );
-
-            webix.ui({
-                rows: [
-                    header,
-                    { cols:[ side, { view:"resizer" }, main] },
-                    footer
-                ]
-            });
-
             webix.ready(function(){
+
+                webix.ui(
+                    profilePopup
+                );
+
+                webix.ui({
+                    rows: [
+                        header,
+                        { cols:[ side, { view:"resizer" }, main] },
+                        footer
+                    ]
+                });
+
                 $$("side").select("dashboard_view");
+                $$("form_movie").bind("table_movies");
+                $$("table_movies").sort("#id#", "asc");
             });
 
         </script>
