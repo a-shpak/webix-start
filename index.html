@@ -13,6 +13,7 @@
         <script src="js/main/users/toolbar.js" type="text/javascript"></script>
         <script src="js/main/users/list.js" type="text/javascript"></script>
         <script src="js/main/users/chart.js" type="text/javascript"></script>
+        <script src="js/main/products/treetable.js" type="text/javascript"></script>
         <script src="js/main/main.js" type="text/javascript"></script>
     </head>
     <body>
@@ -42,6 +43,10 @@
                     });
                 });
                 $$("users_list").attachEvent("onAfterRender", selectTop5Items);
+                $$("products_treetable").load("data/products.js");
+                $$("products_treetable").attachEvent("onAfterLoad", function() {
+                    this.openAll();
+                });
             });
 
             function selectTop5Items() {

@@ -16,6 +16,6 @@ const side = {
                 }
             }
         },
-        { view:"template", template:"<img src=\"img/check.svg\" class=\"green-img\">Connected", css:"connected", height:30 },
+        { view:"template", template:"<img src=\"img/check.svg\" class=\"green-img\">Connected", css:"connected", height:30, },
     ],
 };

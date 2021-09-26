@@ -13,7 +13,12 @@ const usersView = {
         usersChart,
     ]
 };
-const productsView = { id:"products_view", template:"products", align:"center" };
+const productsView = { 
+    id:"products_view", 
+    rows:[
+        productsTreetable
+    ]
+};
 const adminView = { id:"admin_view", template:"admin", align:"center" };
 
 const main = {
