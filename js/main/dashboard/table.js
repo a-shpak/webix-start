@@ -1,4 +1,4 @@
-const table = {
+const dashboardTable = {
     id:"table_movies",
     view:"datatable",
     select:true,

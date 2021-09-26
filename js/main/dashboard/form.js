@@ -10,7 +10,7 @@ const formContent = [
     ]},
     {}
 ];
-const form = {
+const dashboardForm = {
     id:"form_movie",
     view:"form",
     maxWidth:320,
@@ -24,7 +24,6 @@ const form = {
         votes: val => val && val < 100000 && val >= 0,
     },
 };
-
 // Handlers
 function buttonSaveClick() {
     const form = $$("form_movie");

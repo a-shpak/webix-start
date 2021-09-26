@@ -1,11 +1,18 @@
 const dashboardView = {
     id:"dashboard_view",
     cols:[
-        table,
-        form,
+        dashboardTable,
+        dashboardForm,
     ] 
 };
-const usersView = { id:"users_view", template:"users", align:"center" };
+const usersView = { 
+    id:"users_view",
+    rows: [
+        usersToolbar,
+        usersList,
+        usersChart,
+    ]
+};
 const productsView = { id:"products_view", template:"products", align:"center" };
 const adminView = { id:"admin_view", template:"admin", align:"center" };
 
