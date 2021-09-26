@@ -51,7 +51,6 @@
 .delete-user {
     display: inline;
     float: right;
-    background-image: url('../img/close.svg');
 }
 .selection-top {
     background-color: #8aa38a49;
