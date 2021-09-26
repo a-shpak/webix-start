@@ -1,4 +1,4 @@
-const usersChart =  {
+export const usersChart =  {
     id:"chart_users",
     view:"chart",
     type:"bar",

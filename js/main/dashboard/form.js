@@ -10,7 +10,7 @@ const formContent = [
     ]},
     {}
 ];
-const dashboardForm = {
+export const dashboardForm = {
     id:"form_movie",
     view:"form",
     maxWidth:320,

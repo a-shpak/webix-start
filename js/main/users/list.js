@@ -1,4 +1,4 @@
-const usersList = {
+export const usersList = {
     id:"users_list",
     view:"list",
     url:"data/users.js",

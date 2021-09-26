@@ -1,4 +1,11 @@
-const side = {
+const sideItems = [
+    { id:"dashboard_view", value:"Dashboard" },
+    { id:"users_view", value:"Users" },
+    { id:"products_view", value:"Products" },
+    { id:"admin_view", value:"Admin" },
+];
+
+export const side = {
     css:"list",
     width:200, minWidth:120, maxWidth:300,
     paddingY:10,

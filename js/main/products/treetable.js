@@ -1,4 +1,4 @@
-const productsTreetable = {
+export const productsTreetable = {
     id:"products_treetable",
     view:"treetable",
     columns:[

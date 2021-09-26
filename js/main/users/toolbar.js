@@ -1,4 +1,4 @@
-const usersToolbar = {
+export const usersToolbar = {
     view:"toolbar",
     elements: [
         { view:"text", id:"users_text" },

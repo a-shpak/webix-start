@@ -1,4 +1,4 @@
-const footer = {
+export const footer = {
     height:50,
     css:"text-footer",
     view:"template",

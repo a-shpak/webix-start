@@ -1,3 +1,12 @@
+import {dashboardTable} from "./dashboard/table.js"; 
+import {dashboardForm} from "./dashboard/form.js"; 
+
+import {usersToolbar} from "./users/toolbar.js"; 
+import {usersList} from "./users/list.js"; 
+import {usersChart} from "./users/chart.js"; 
+
+import {productsTreetable} from "./products/treetable.js"; 
+
 const dashboardView = {
     id:"dashboard_view",
     cols:[
@@ -21,7 +30,7 @@ const productsView = {
 };
 const adminView = { id:"admin_view", template:"admin", align:"center" };
 
-const main = {
+export const main = {
     cells:[
         dashboardView,
         usersView,
