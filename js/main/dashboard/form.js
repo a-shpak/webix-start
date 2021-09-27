@@ -29,9 +29,11 @@ function buttonSaveClick() {
     const form = $$("form_movie");
     if (form.validate()) {
         const table = $$("table_movies");
+        clearFilter(table);
+        table
         const movie = form.getValues();
         if (!movie.id) {
-            movie.id = Math.max.apply(null, table.data.order) + 1; 
+            movie.id = Math.max.apply(null, table.data.order) + 1;
             table.add(movie);
         } else {
             form.save();
@@ -50,4 +52,10 @@ function buttonClearClick() {
             $$("form_movie").clearValidation();
         }
     );
+}
+function clearFilter(table) {
+    table.filter("#title#", "");
+    table.filter("#year#", "");
+    table.filter("#rating#", "");
+    table.filter("#votes#", "");
 }
