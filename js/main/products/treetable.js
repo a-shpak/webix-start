@@ -7,7 +7,7 @@ export const productsTreetable = {
         { id:"price", header:"Price" },
     ],
     scroll:"y",
-    select:true,
+    select:"cell",
     on: {
         onAfterLoad:function() {
             this.openAll();
