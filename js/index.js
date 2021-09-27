@@ -17,9 +17,10 @@ webix.ready(function() {
         ]
     });
 
+    const table = $$("table_movies");
     $$("side").select("dashboard_view");
     $$("form_movie").bind("table_movies");
-    $$("table_movies").sort("#id#", "asc");
+    table.sort("#id#", "asc");
     $$("treetable_products").load("data/products.js");
     $$("chart_users").sync($$("list_users"), function() {
         this.group({
@@ -29,6 +30,24 @@ webix.ready(function() {
             }
         });
     });
+    table.registerFilter(
+        $$("tabbar_movies"),
+        { columnId:"year", compare:function(value, filter, item) {
+            if (filter == 1) {
+                return true;
+            } else if (filter == 2) {
+                return value < 1970;
+            } else if (filter == 3) {
+                return value > 2010;
+            } else if (filter == 4) {
+                return value == 2021;
+            } else return false;
+        }},
+        { 
+            getValue:function(node) { return node?.getValue() },
+            setValue:function(node, value) { node?.setValue(value); }
+        }
+    );
 });
 
 export function getRandomInt(min, max) {

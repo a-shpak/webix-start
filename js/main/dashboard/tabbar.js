@@ -1,24 +1,15 @@
 export const tabbar = {
+    id:"tabbar_movies",
     view:"tabbar",
     options:[
-        "All",
-        "Old",
-        "Modern",
-        "New",
+        { id:1, value:"All" },
+        { id:2, value:"Old" },
+        { id:3, value:"Modern" },
+        { id:4, value:"New" },
     ],
     on: {
-        onAfterTabClick:function(id, ev) {
-            console.log(id);
-            const table = $$("table_movies");
-            if (id == "All") {
-                table.filter("#year#", "");
-            } else if (id == "Old") {
-                table.filter(obj => obj.year < 1960);
-            } else if (id == "Modern") {
-                table.filter(obj => obj.year > 2010 && obj.year < 2021);
-            } else if (id == "New") {
-                table.filter(obj => obj.year == 2021)
-            }
+        onAfterTabClick:function() {
+            $$("table_movies").filterByAll();
         }
     }
 };
