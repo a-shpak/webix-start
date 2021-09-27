@@ -8,4 +8,13 @@ export const usersList = {
             this.remove(id);
         }
     },
-}
+    on: {
+        onAfterRender: function() {
+            const list = $$("users_list");
+            list.clearCss("selection-top");
+            for (let i = 0; i < (list.count() > 4 ? 5 : list.count()); i++ ) {
+                list.addCss(list.data.order[i], "selection-top");
+            }
+        } 
+    }
+};

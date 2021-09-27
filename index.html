@@ -30,26 +30,8 @@
                 $$("side").select("dashboard_view");
                 $$("form_movie").bind("table_movies");
                 $$("table_movies").sort("#id#", "asc");
-                $$("users_text").attachEvent("onTimedKeyPress", function(){
-                    const text = this.getValue().toLowerCase();
-                    $$("users_list").filter(function(obj) {
-                        return obj.name.toLowerCase().indexOf(text) !== -1;
-                    });
-                });
-                $$("users_list").attachEvent("onAfterRender", selectTop5Items);
                 $$("products_treetable").load("data/products.js");
-                $$("products_treetable").attachEvent("onAfterLoad", function() {
-                    this.openAll();
-                });
             });
-
-            function selectTop5Items() {
-                const list = $$("users_list");
-                list.clearCss("selection-top");
-                for (let i = 0; i < (list.count() > 4 ? 5 : list.count()); i++ ) {
-                    list.addCss(list.data.order[i], "selection-top");
-                }
-            } 
 
 
         </script>

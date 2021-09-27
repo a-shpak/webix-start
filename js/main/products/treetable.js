@@ -8,4 +8,9 @@ export const productsTreetable = {
     ],
     scroll:"y",
     select:true,
+    on: {
+        onAfterLoad:function() {
+            this.openAll();
+        }
+    }
 };
