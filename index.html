@@ -3,37 +3,9 @@
     <head>
         <link rel="stylesheet" href="libs/webix/webix.css" type="text/css"> 
         <link rel="stylesheet" href="css/style.css" type="text/css"> 
-        <script src="libs/webix/webix.js" type="text/javascript"></script>
+        <script type="text/javascript" src="libs/webix/webix.js"></script> 
+        <script type="module" src="./js/index.js"></script> 
     </head>
     <body>
-        <script type="module">
-            
-            import {header, profilePopup} from "./js/header.js";
-            import {main} from "./js/main/main.js";
-            import {footer} from "./js/footer.js";
-            import {side} from "./js/main/side.js";
-
-            webix.ready(function() {
-                
-                webix.ui(
-                    profilePopup
-                );
-
-                webix.ui({
-                    rows: [
-                        header,
-                        { cols:[ side, { view:"resizer" }, main] },
-                        footer
-                    ]
-                });
-
-                $$("side").select("dashboard_view");
-                $$("form_movie").bind("table_movies");
-                $$("table_movies").sort("#id#", "asc");
-                $$("products_treetable").load("data/products.js");
-            });
-
-
-        </script>
     </body>
 </html>
