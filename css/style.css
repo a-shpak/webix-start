@@ -37,4 +37,21 @@
 .green-img {
     filter: invert(48%) sepia(12%) saturate(4776%) hue-rotate(80deg) brightness(99%) contrast(80%);
     vertical-align: middle;
+    margin-bottom: 5px;
+}
+.col-gray {
+    background-color: #F4F5F9;
+}
+.pointer {
+    cursor: pointer;
+}
+.datatable-hover {
+    background-color: #B2DAE4;
+}
+.delete-user {
+    display: inline;
+    float: right;
+}
+.selection-top {
+    background-color: #8aa38a49;
 }

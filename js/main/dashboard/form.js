@@ -1,21 +1,3 @@
-const mainList = {
-    css:"list",
-    width:200, minWidth:120, maxWidth:300,
-    paddingY:10,
-    rows: [
-        { view: "list", data: ["Dashboard", "Users", "Product", "Locations"], 
-          css:"list", scroll:false },
-        { view:"template", template:"<img src=\"img/check.svg\" class=\"green-img\">Connected", css:"connected", height:30 },
-
-    ]
-};
-const mainTable = {
-    id:"table_movies",
-    view:"datatable",
-    data:smallFilmSet,
-    autoConfig:true,
-    scroll:"y"
-};
 const formContent = [
     { view:"template", type:"section", template:"edit films" },
     { view:"text", label:"Title", name:"title", invalidMessage:"Enter valid title" },
@@ -23,12 +5,12 @@ const formContent = [
     { view:"text", label:"Rating", name:"rating", invalidMessage:"Rating cannot be empty or 0" },
     { view:"text", label:"Votes", name:"votes", invalidMessage:"Votes must be less than 100000" },
     { cols:[
-        { view:"button", label:"Add Item", css:"webix_primary", id:"button_add", click:buttonAddClick },
+        { view:"button", label:"Save", css:"webix_primary", id:"button_add", click:buttonSaveClick },
         { view:"button", label:"Clear", id:"button_clear", click:buttonClearClick },
     ]},
     {}
 ];
-const mainForm = {
+export const dashboardForm = {
     id:"form_movie",
     view:"form",
     maxWidth:320,
@@ -42,24 +24,15 @@ const mainForm = {
         votes: val => val && val < 100000 && val >= 0,
     },
 };
-const main = {
-    cols: [
-        mainList,
-        { view:"resizer" },
-        mainTable,
-        mainForm
-    ]
-};
-
-
-// handlers
-
-function buttonAddClick() {
+// Handlers
+function buttonSaveClick() {
     const form = $$("form_movie");
     if (form.validate()) {
         const table = $$("table_movies");
-        table.add(form.getValues());
+        const movie = form.getValues();
+        form.save();
         form.clear();
+        table.clearSelection();
         webix.message("Validation succees!");
     }
 }

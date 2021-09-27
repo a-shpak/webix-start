@@ -1,4 +1,4 @@
-const header = {
+export const header = {
     height:50,
     css:"header",
     paddingX:10,
@@ -11,7 +11,7 @@ const header = {
     ]
 };
 
-const profilePopup = {
+export const profilePopup = {
     view:"popup",
     id:"profile_popup",
     body: {
