@@ -1,21 +1,29 @@
+webix.protoUI({
+    name:"editlist" 
+}, webix.EditAbility, webix.ui.list);  
+
 export const usersList = {
-    id:"users_list",
-    view:"list",
+    id:"list_users",
+    view:"editlist",
     url:"data/users.js",
-    template:"#name# from #country# <span class=\"delete-user\">x<span>",
+    template:"#name#, #age# from #country# <span class=\"delete-user\">x<span>",
     onClick: {
         "delete-user":function(e, id) {
             this.remove(id);
             return false;
         }
     },
-    on: {
-        onAfterRender: function() {
-            const list = $$("users_list");
-            list.clearCss("selection-top");
-            for (let i = 0; i < (list.count() > 4 ? 5 : list.count()); i++ ) {
-                list.addCss(list.data.order[i], "selection-top");
+    scheme: {
+        $init:function(obj) {
+            if (obj.age < 26) {
+                obj.$css = "hightlight-yellow";
             }
-        } 
+        }
+    },
+    editable:true,
+    editor:"text",
+    editValue:"name",
+    rules: {
+        "name":value => !!value,
     }
 };

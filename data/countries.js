@@ -1,4 +1,4 @@
-[
+export const countries = [
 	{ "id":1, "value":"Germany" },
 	{ "id":2, "value":"USA" },
 	{ "id":3, "value":"Canada" },

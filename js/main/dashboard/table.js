@@ -1,3 +1,5 @@
+import { getRandomInt } from "../../index.js";
+
 export const dashboardTable = {
     id:"table_movies",
     view:"datatable",
@@ -7,7 +9,7 @@ export const dashboardTable = {
         $init:function(obj) {
             obj.votes = parseInt(obj.votes.replace(',', ''));
             obj.rating = parseFloat(obj.rating.replace(',', '.'));
-            obj.categoryId = getRandomInt(4);
+            obj.categoryId = getRandomInt(1, 4);
         }
     },
     columns:[
@@ -29,7 +31,3 @@ export const dashboardTable = {
     scroll:"y",
     url: "data/data.js"
 };
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * (max + 1));
-}

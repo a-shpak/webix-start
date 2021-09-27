@@ -20,5 +20,17 @@ webix.ready(function() {
     $$("side").select("dashboard_view");
     $$("form_movie").bind("table_movies");
     $$("table_movies").sort("#id#", "asc");
-    $$("products_treetable").load("data/products.js");
+    $$("treetable_products").load("data/products.js");
+    $$("chart_users").sync($$("list_users"), function() {
+        this.group({
+            by:"country",
+            map:{
+                name:["id", "count"]   
+            }
+        });
+    });
 });
+
+export function getRandomInt(min, max) {
+    return min + Math.floor(Math.random() * max);
+}
