@@ -6,6 +6,7 @@ export const usersList = {
     onClick: {
         "delete-user":function(e, id) {
             this.remove(id);
+            return false;
         }
     },
     on: {
