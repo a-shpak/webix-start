@@ -30,14 +30,9 @@ function buttonSaveClick() {
     if (form.validate()) {
         const table = $$("table_movies");
         const movie = form.getValues();
-        if (!movie.id) {
-            clearFilter(table);
-            movie.id = Math.max.apply(null, table.data.order) + 1;
-            table.add(movie);
-        } else {
-            form.save();
-        }
+        form.save();
         form.clear();
+        table.clearSelection();
         webix.message("Validation succees!");
     }
 }
@@ -51,10 +46,4 @@ function buttonClearClick() {
             $$("form_movie").clearValidation();
         }
     );
-}
-function clearFilter(table) {
-    table.filter("#title#", "");
-    table.filter("#year#", "");
-    table.filter("#rating#", "");
-    table.filter("#votes#", "");
 }
