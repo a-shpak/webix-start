@@ -7,10 +7,12 @@ import {usersChart} from "./users/chart.js";
 
 import {productsTreetable} from "./products/treetable.js"; 
 
+import {tabbar} from "./dashboard/tabbar.js";
+
 const dashboardView = {
     id:"dashboard_view",
     cols:[
-        dashboardTable,
+        { rows:[ tabbar, dashboardTable, ]},
         dashboardForm,
     ] 
 };
