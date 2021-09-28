@@ -17,8 +17,30 @@ webix.ready(function() {
         ]
     });
 
-    $$("side").select("dashboard_view");
     $$("form_movie").bind("table_movies");
-    $$("table_movies").sort("#id#", "asc");
-    $$("products_treetable").load("data/products.js");
+    $$("treetable_products").load("data/products.js");
+    $$("chart_users").sync($$("list_users"), function() {
+        this.group({
+            by:"country",
+            map:{
+                name:["id", "count"]   
+            }
+        });
+        this.sort("#country#", "asc");
+    });
+    $$("table_movies").registerFilter(
+        $$("tabbar_movies"),
+        { columnId:"year", compare:function(value, filter) {
+            switch(filter) {
+                case '2': return value < 1970;
+                case '3': return value > 2010;
+                case '4': return value == 2021;
+                default:  return true;
+            }
+        }},
+        { 
+            getValue:function(node) { return node?.getValue() },
+            setValue:function(node, value) { node?.setValue(value); }
+        }
+    );
 });
