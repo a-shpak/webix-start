@@ -29,6 +29,7 @@ webix.ready(function() {
                 name:["id", "count"]   
             }
         });
+        this.sort("#country#", "asc");
     });
     table.registerFilter(
         $$("tabbar_movies"),
