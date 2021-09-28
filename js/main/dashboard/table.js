@@ -1,4 +1,5 @@
 import { getRandomInt } from "../../helpers.js";
+import { categoriesCollection } from "../../../data/collections.js";
 
 export const dashboardTable = {
     id:"table_movies",
@@ -9,13 +10,13 @@ export const dashboardTable = {
         $init:function(obj) {
             obj.votes = parseInt(obj.votes.replace(',', ''));
             obj.rating = parseFloat(obj.rating.replace(',', '.'));
-            obj.categoryId = getRandomInt(1, 4);
+            obj.categoryId = getRandomInt(1, categoriesCollection.count());
         }
     },
     columns:[
         { id:"id", header:"", css:"col-gray", width:60, sort:"int" },
         { id:"title", header:["Title", { content:"textFilter" } ], fillspace:true, sort:"text" },
-        { id:"categoryId", header:["Category", { content:"selectFilter" }], editor:"select", collection:"data/categories.js" },
+        { id:"categoryId", header:["Category", { content:"selectFilter" }], editor:"select", collection:categoriesCollection },
         { id:"rating", header:["Rating", { content:"numberFilter" } ], maxWidth:100, sort:"int" },
         { id:"votes", header:["Votes", { content:"numberFilter" } ], maxWidth:100, sort:"int" },
         { id:"year", header:"Year", maxWidth:100, sort:"int" },

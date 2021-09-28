@@ -1,13 +1,12 @@
-import {dashboardTable} from "./dashboard/table.js"; 
-import {dashboardForm} from "./dashboard/form.js"; 
-
-import {usersToolbar} from "./users/toolbar.js"; 
-import {usersList} from "./users/list.js"; 
-import {usersChart} from "./users/chart.js"; 
-
-import {productsTreetable} from "./products/treetable.js"; 
-
-import {tabbar} from "./dashboard/tabbar.js";
+import { dashboardTable } from "./dashboard/table.js"; 
+import { dashboardForm } from "./dashboard/form.js"; 
+import { usersToolbar } from "./users/toolbar.js"; 
+import { usersList } from "./users/list.js"; 
+import { usersChart } from "./users/chart.js"; 
+import { productsTreetable } from "./products/treetable.js"; 
+import { tabbar } from "./dashboard/tabbar.js";
+import { categoriesForm } from "./admin/form.js"; 
+import { categoriesTable } from "./admin/table.js"; 
 
 const dashboardView = {
     id:"dashboard_view",
@@ -30,7 +29,13 @@ const productsView = {
         productsTreetable
     ]
 };
-const adminView = { id:"admin_view", template:"admin", align:"center" };
+const adminView = { 
+    id:"admin_view", 
+    cols:[
+        categoriesTable,
+        categoriesForm,
+    ]
+};
 
 export const main = {
     cells:[

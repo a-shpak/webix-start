@@ -1,9 +1,12 @@
+import { categoriesCollection } from "../../../data/collections.js";
+
 const formContent = [
     { view:"template", type:"section", template:"edit films" },
     { view:"text", label:"Title", name:"title", invalidMessage:"Enter valid title" },
     { view:"text", label:"Year", name:"year", invalidMessage:"Year should be between 1970 and 2021" },
     { view:"text", label:"Rating", name:"rating", invalidMessage:"Rating cannot be empty or 0" },
     { view:"text", label:"Votes", name:"votes", invalidMessage:"Votes must be less than 100000" },
+    { view:"richselect", label:"Category", name:"category", options:categoriesCollection },
     { cols:[
         { view:"button", label:"Save", css:"webix_primary", id:"button_add", click:buttonSaveClick },
         { view:"button", label:"Clear", id:"button_clear", click:buttonClearClick },
@@ -28,11 +31,9 @@ export const dashboardForm = {
 function buttonSaveClick() {
     const form = $$("form_movie");
     if (form.validate()) {
-        const table = $$("table_movies");
-        const movie = form.getValues();
         form.save();
         form.clear();
-        table.clearSelection();
+        $$("table_movies").clearSelection();
         webix.message("Validation succees!");
     }
 }
