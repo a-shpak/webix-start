@@ -1,7 +1,3 @@
-webix.protoUI({
-    name:"editlist" 
-}, webix.EditAbility, webix.ui.list);  
-
 export const usersList = {
     id:"list_users",
     view:"editlist",

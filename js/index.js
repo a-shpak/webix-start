@@ -33,15 +33,16 @@ webix.ready(function() {
     table.registerFilter(
         $$("tabbar_movies"),
         { columnId:"year", compare:function(value, filter, item) {
-            if (filter == 1) {
-                return true;
-            } else if (filter == 2) {
-                return value < 1970;
-            } else if (filter == 3) {
-                return value > 2010;
-            } else if (filter == 4) {
-                return value == 2021;
-            } else return false;
+            switch(filter) {
+                case '1':
+                    return true;
+                case '2':
+                    return value < 1970;
+                case '3':
+                    return value > 2010;
+                case '4':
+                    return value == 2021;
+            }
         }},
         { 
             getValue:function(node) { return node?.getValue() },
@@ -49,7 +50,3 @@ webix.ready(function() {
         }
     );
 });
-
-export function getRandomInt(min, max) {
-    return min + Math.floor(Math.random() * max);
-}

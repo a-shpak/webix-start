@@ -1,4 +1,4 @@
-import { getRandomInt } from "../../index.js";
+import { getRandomInt } from "../../helpers.js";
 
 export const dashboardTable = {
     id:"table_movies",

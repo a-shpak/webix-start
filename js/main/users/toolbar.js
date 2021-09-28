@@ -1,5 +1,5 @@
 import { countries } from "../../../data/countries.js";
-import { getRandomInt } from "../../index.js";
+import { getRandomInt } from "../../helpers.js";
 
 export const usersToolbar = {
     view:"toolbar",
