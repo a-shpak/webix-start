@@ -29,5 +29,8 @@ export const dashboardTable = {
         }
     },
     scroll:"y",
-    url: "data/data.js"
+    url: "data/data.js",
+    ready:function() {
+        this.sort("#id#", "asc", "int");
+    }
 };

@@ -17,10 +17,7 @@ webix.ready(function() {
         ]
     });
 
-    const table = $$("table_movies");
-    $$("side").select("dashboard_view");
     $$("form_movie").bind("table_movies");
-    table.sort("#id#", "asc");
     $$("treetable_products").load("data/products.js");
     $$("chart_users").sync($$("list_users"), function() {
         this.group({
@@ -31,18 +28,14 @@ webix.ready(function() {
         });
         this.sort("#country#", "asc");
     });
-    table.registerFilter(
+    $$("table_movies").registerFilter(
         $$("tabbar_movies"),
-        { columnId:"year", compare:function(value, filter, item) {
+        { columnId:"year", compare:function(value, filter) {
             switch(filter) {
-                case '1':
-                    return true;
-                case '2':
-                    return value < 1970;
-                case '3':
-                    return value > 2010;
-                case '4':
-                    return value == 2021;
+                case '2': return value < 1970;
+                case '3': return value > 2010;
+                case '4': return value == 2021;
+                default:  return true;
             }
         }},
         { 

@@ -21,6 +21,9 @@ export const side = {
                 onAfterSelect:function(id) {
                     $$(id).show();
                 }
+            },
+            ready:function() {
+                this.select("dashboard_view");
             }
         },
         { view:"template", template:"<img src=\"img/check.svg\" class=\"green-img\">Connected", css:"connected", height:30, },
