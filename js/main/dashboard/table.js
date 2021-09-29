@@ -25,6 +25,7 @@ export const dashboardTable = {
     hover:"datatable-hover",
     onClick:{
         "wxi-trash":function(e, id) {
+            $$("form_movies").clear();
             this.remove(id);
             return false;
         }

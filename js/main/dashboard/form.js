@@ -43,8 +43,10 @@ function buttonClearClick() {
         text:"Are you sure you want to clear form?",
     }).then(
         function() {
-            $$("form_movie").clear();
-            $$("form_movie").clearValidation();
+            const form = $$("form_movie");
+            form.clear();
+            form.clearValidation();
+            $$("table_movies").clearSelection();
         }
     );
 }
