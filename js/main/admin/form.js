@@ -26,7 +26,6 @@ function buttonSaveClick() {
     }
 }
 function buttonClearClick() {
-    const form = $$("form_categories");
-    form.clear();
+    $$("form_categories").clear();
     $$("table_categories").clearSelection();
 }
