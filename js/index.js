@@ -1,7 +1,8 @@
-import {header, profilePopup} from "./header.js";
-import {main} from "./main/main.js";
-import {footer} from "./footer.js";
-import {side} from "./main/side.js";
+import { header, profilePopup } from "./header.js";
+import { main } from "./main/main.js";
+import { footer } from "./footer.js";
+import { side } from "./main/side.js";
+import { usersCollection } from "../data/collections.js";
 
 webix.ready(function() {
 
@@ -18,8 +19,9 @@ webix.ready(function() {
     });
 
     $$("form_movie").bind("table_movies");
+    $$("form_categories").bind("table_categories");
     $$("treetable_products").load("data/products.js");
-    $$("chart_users").sync($$("list_users"), function() {
+    $$("chart_users").sync(usersCollection, function() {
         this.group({
             by:"country",
             map:{

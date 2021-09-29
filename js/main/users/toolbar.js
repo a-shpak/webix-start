@@ -1,5 +1,6 @@
 import { countries } from "../../../data/countries.js";
 import { getRandomInt } from "../../helpers.js";
+import { usersCollection } from "../../../data/collections.js";
 
 export const usersToolbar = {
     view:"toolbar",
@@ -28,5 +29,5 @@ function addNewUser() {
         age: getRandomInt(18, 80),
         country:countries[getRandomInt(0, countries.length - 1)].value,
     };
-    $$("list_users").add(obj);
+    usersCollection.add(obj);
 }

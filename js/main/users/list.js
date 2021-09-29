@@ -1,11 +1,13 @@
+import { usersCollection } from "../../../data/collections.js";
+
 export const usersList = {
     id:"list_users",
     view:"editlist",
-    url:"data/users.js",
+    data:usersCollection,
     template:"#name#, #age# from #country# <span class=\"delete-user\">x<span>",
     onClick: {
         "delete-user":function(e, id) {
-            this.remove(id);
+            usersCollection.remove(id);
             return false;
         }
     },
