@@ -6,7 +6,7 @@ const formContent = [
     { view:"text", label:"Year", name:"year", invalidMessage:"Year should be between 1970 and 2021" },
     { view:"text", label:"Rating", name:"rating", invalidMessage:"Rating cannot be empty or 0" },
     { view:"text", label:"Votes", name:"votes", invalidMessage:"Votes must be less than 100000" },
-    { view:"richselect", label:"Category", name:"category", options:categoriesCollection },
+    { view:"richselect", label:"Category", name:"categoryId", options:categoriesCollection },
     { cols:[
         { view:"button", label:"Save", css:"webix_primary", id:"button_add", click:buttonSaveClick },
         { view:"button", label:"Clear", id:"button_clear", click:buttonClearClick },

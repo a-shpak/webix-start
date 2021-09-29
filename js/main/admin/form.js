@@ -1,7 +1,7 @@
 const formContent = [
     { view:"text", label:"Category", name:"value", invalidMessage:"Field cannot be empty" },
     { cols:[
-        { view:"button", label:"Add", css:"webix_primary", click:buttonSaveClick },
+        { view:"button", label:"Save", css:"webix_primary", click:buttonSaveClick },
         { view:"button", label:"Clear", click:buttonClearClick },
     ]},
     {}
